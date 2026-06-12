@@ -12,6 +12,11 @@ The system uses five organizational roles with increasing clearance:
 
 Application state is persisted in text files (for example users, tasks, messages, notifications, audit logs, and performance data), so actions performed in the console menus are retained across runs.
 
+## Class Design
+The full UML class diagram is in `finalUML.pdf` (source: `projuml.drawio`).
+
+![Class diagram](class-diagram.png)
+
 ## Tech Stack
 - Language: C++
 - Standard libraries: iostream, string, ctime/cstdlib, fstream, iomanip, cstring
