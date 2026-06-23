@@ -118,10 +118,9 @@ This project was developed collaboratively as a 2-person university OOP project.
 - Managed integration of all components and coordinated overall system flow
 
 ### Muhammad Subhan
-- Contributed significantly to task management module implementation (status updates, filtering, and task handling logic)
-- Worked on notification system (INFO/WARNING/EMERGENCY generation and role-based delivery)
-- Assisted in messaging system features including inbox/outbox handling and validation logic
-- Participated in implementing authentication flow and user interaction menus
-- Supported development of audit log generation and system monitoring features
-- Actively involved in debugging, testing, and improving system stability
-- Contributed to documentation and refinement of feature behavior
+- Implemented the notification system end-to-end: INFO/WARNING/EMERGENCY creation, role-based delivery, file persistence, and ownership-based deletion
+- Built task filtering and status update logic in the task management module — filter by ID, status, creator, assignee, TTL, and priority
+- Developed inbox and outbox handling in the messaging system, including delivery validation and message management
+- Implemented the authentication flow screens and user interaction menus
+- Built audit log generation and system monitoring display features
+- Led debugging, testing, and stability improvements across the application
