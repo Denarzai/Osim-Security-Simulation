@@ -1,5 +1,7 @@
 # OSIM Security Simulation
 
+[![build](https://github.com/Denarzai/Osim-Security-Simulation/actions/workflows/build.yml/badge.svg)](https://github.com/Denarzai/Osim-Security-Simulation/actions/workflows/build.yml)
+
 ## Project Overview
 OSIM Security Simulation is a C++ console application that models an internal organizational environment with role-based access control (RBAC). It was built for an Object-Oriented Programming university course and focuses on secure operational workflows such as authentication, authorization, task handling, communications, audit logging, and anomaly reporting.
 
@@ -13,16 +15,25 @@ The system uses five organizational roles with increasing clearance:
 Application state is persisted in text files (for example users, tasks, messages, notifications, audit logs, and performance data), so actions performed in the console menus are retained across runs.
 
 ## Class Design
-The full UML class diagram is in `finalUML.pdf` (source: `projuml.drawio`).
+The full UML class diagram is in `docs/finalUML.pdf` (source: `docs/projuml.drawio`).
 
-![Class diagram](class-diagram.png)
+![Class diagram](docs/class-diagram.png)
 
 ## Tech Stack
 - Language: C++
 - Standard libraries: iostream, string, ctime/cstdlib, fstream, iomanip, cstring
 - Architecture style: Object-Oriented Programming (classes, inheritance, managers/singletons)
-- Data storage: Plain text files in the project root
-- Platform target: Console application (Windows-compatible)
+- Data storage: Plain text files (sample data in `data/`)
+- Platform target: Console application (cross-platform; developed on Windows)
+
+## Repository Structure
+
+| Path | Contents |
+|------|----------|
+| `src/` | Implementation files (`.cpp`) |
+| `include/` | Headers (`.h`) |
+| `data/` | Sample data files the application reads and writes |
+| `docs/` | UML class diagram (PDF, draw.io source, PNG export) |
 
 ## Features
 - Authentication and RBAC
@@ -71,11 +82,11 @@ The full UML class diagram is in `finalUML.pdf` (source: `projuml.drawio`).
 ## How to Compile and Run
 The project does not include a build system file, so compile from source files directly.
 
-### Option 1: g++ (MinGW)
+### Option 1: g++
 From the project root:
 
 ```bash
-g++ -std=c++11 -O2 -o osim-security-simulation *.cpp
+g++ -std=c++11 -O2 -o osim-security-simulation src/*.cpp -Iinclude
 ./osim-security-simulation
 ```
 
@@ -89,11 +100,15 @@ On Windows PowerShell, run:
 From the project root:
 
 ```bat
-cl /EHsc /std:c++14 *.cpp
+cl /EHsc /std:c++14 /Iinclude src\*.cpp /Feosim-security-simulation.exe
 osim-security-simulation.exe
 ```
 
-Note: The application expects its text data files (such as users.txt, tasks.txt, inbox.txt, notification.txt, audit.txt, performanceLog.txt, preference.txt, anomalyLog.txt) in the same working directory.
+Note: The application reads and writes its text data files (users.txt, tasks.txt, inbox.txt, notification.txt, audit.txt, performanceLog.txt, preference.txt, anomalyLog.txt) in the current working directory. Sample data lives in `data/` — copy it next to the binary before the first run:
+
+```bash
+cp data/*.txt .
+```
 
 ## Role in Project
 Built as a pair project for a university OOP course.
