@@ -1,0 +1,12 @@
+name: build
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile
+        run: g++ -std=c++11 -O2 -o osim-security-simulation src/*.cpp -Iinclude
